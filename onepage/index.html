@@ -6,32 +6,31 @@
   <meta name="description" content="COCO手搖飲官方品牌網站 - 主打多重水果風格飲品，專為愛喝甜的你調配的果香手搖！超人氣限定IP聯名商品熱烈開賣中，滿杯真果粒，口口酸甜爆汁！">
   <title>COCO 手搖飲｜多重鮮果風格 · 甜蜜聯名大賞</title>
   
-  <!-- Google Fonts: Plus Jakarta Sans & Noto Sans TC -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;900&family=Plus+Jakarta+Sans:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;900&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
 
   <style>
     /* ==========================================================
-       CSS 變數系統 (Design Tokens) - 依據 detail.md 規格定義
-       核心色彩以橙色 (Orange) 為最高品牌識別基準
+       CSS 變數系統 - 以橙色 (Orange) 為核心品牌識別色彩
        ========================================================== */
     :root {
-      --coco-orange-primary: #FF6600;     /* 品牌主要識別鮮橙色 */
-      --coco-orange-dark: #E64A00;        /* 焦糖深橙色 */
+      --coco-orange-primary: #FF6600;     /* COCO 經典鮮橙主色 */
+      --coco-orange-dark: #E64A00;        /* 焦糖深橙 */
       --coco-orange-light: #FF8533;       /* 亮橙果色 */
       --coco-orange-glow: #FFA04D;        /* 柔光橙 */
       --coco-orange-bg: #FFF5EE;          /* 蜜柑粉白底色 */
-      --coco-peach: #FF7E67;              /* 水蜜桃果粉色 */
-      --coco-yellow: #FFB703;             /* 芒果金黃色 */
+      --coco-peach: #FF7E67;              /* 水蜜桃果粉 */
+      --coco-yellow: #FFB703;             /* 芒果金黃 */
       --coco-amber: #FB8500;              /* 暖琥珀色 */
       
       --text-main: #231815;               /* 主文字深褐黑 */
-      --text-muted: #6C5E57;              /* 次要文字、段落 */
-      --text-light: #9B8D85;              /* 淺灰文字、輔助說明 */
+      --text-muted: #6C5E57;              /* 次要文字 */
+      --text-light: #9B8D85;              /* 淺灰文字 */
       --bg-white: #FFFFFF;
       --bg-card: #FFFFFF;
-      --border-soft: #F2E3DA;             /* 暖色邊框 */
+      --border-soft: #F2E3DA;             /* 柔和暖色外框 */
       
       --radius-sm: 8px;
       --radius-md: 16px;
@@ -90,12 +89,12 @@
       margin-inline: auto;
     }
 
-    /* 頂部促銷跑馬燈 (Section 5.1) */
+    /* 頂部通知條 */
     .promo-topbar {
       background: linear-gradient(90deg, #FF6600, #FB8500, #FF6600);
       background-size: 200% auto;
       animation: gradientShift 6s ease infinite;
-      color: #FFF;
+      color: #fff;
       font-size: 0.88rem;
       font-weight: 700;
       text-align: center;
@@ -122,7 +121,7 @@
       100% { background-position: 0% 50%; }
     }
 
-    /* 導覽列 (Section 5.2) */
+    /* 導覽列 */
     .site-header {
       position: sticky;
       top: 0;
@@ -279,7 +278,7 @@
       border: 2px solid #FFF;
     }
 
-    /* Hero 首頁主視覺區 (Section 5.3) */
+    /* Hero 巨幕區塊 */
     .hero-section {
       position: relative;
       padding: 60px 0 90px;
@@ -371,7 +370,7 @@
       color: var(--text-muted);
     }
 
-    /* Hero 右側互動式手搖杯視覺插畫 */
+    /* Hero 右側互動式杯裝水果視覺 */
     .hero-visual {
       position: relative;
       display: flex;
@@ -490,7 +489,7 @@
       line-height: 1.7;
     }
 
-    /* 品牌風格：多重水果工藝區 (Section 5.4) */
+    /* 品牌風格區塊 (主打多重水果風格) */
     .brand-style-section {
       padding: 90px 0;
       background: #FFFFFF;
@@ -556,7 +555,7 @@
       border-radius: var(--radius-pill);
     }
 
-    /* 多重水果風味輪橫幅 */
+    /* 多重水果風味輪 (Flavor Wheel Banner) */
     .fruit-banner {
       margin-top: 55px;
       background: linear-gradient(135deg, #FF6600, #E64A00);
@@ -594,7 +593,7 @@
       border: 1px solid rgba(255, 255, 255, 0.35);
     }
 
-    /* 人氣果香特調菜單區 (Section 5.5) */
+    /* 產品菜單區塊 (多重水果風格飲品) */
     .menu-section {
       padding: 90px 0;
       background: var(--coco-orange-bg);
@@ -782,7 +781,7 @@
       box-shadow: 0 4px 12px rgba(255, 102, 0, 0.35);
     }
 
-    /* 甜蜜專屬區：愛喝甜的專屬甜度指南 (Section 5.6) */
+    /* 甜蜜專屬區塊 (目標受眾：愛喝甜的) */
     .sweet-paradise-section {
       padding: 90px 0;
       background: linear-gradient(180deg, #FFFFFF 0%, #FFF5ED 100%);
@@ -926,7 +925,7 @@
       border-radius: var(--radius-pill);
     }
 
-    /* 聯名商品專區：吸引消費者購買 (Section 5.7) */
+    /* 聯名商品專區 (功能：聯名商品吸引消費者購買) */
     .collab-section {
       padding: 100px 0;
       background: radial-gradient(circle at 10% 20%, #FFF0E4 0%, transparent 40%),
@@ -1052,7 +1051,7 @@
       animation: floatCup 4s ease-in-out infinite alternate;
     }
 
-    /* 4 大聯名商品卡片網格 */
+    /* 聯名周邊商品卡片網格 */
     .merch-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -1152,7 +1151,7 @@
       box-shadow: 0 4px 14px rgba(255, 102, 0, 0.35);
     }
 
-    /* 顧客評價區塊 (Section 5.8) */
+    /* 顧客口碑推薦區 */
     .review-section {
       padding: 85px 0;
       background: var(--coco-orange-bg);
@@ -1205,7 +1204,7 @@
       color: var(--text-light);
     }
 
-    /* 促銷行動呼籲大條幅 (Section 5.9) */
+    /* CTA 促銷大條幅 */
     .cta-banner-section {
       padding: 60px 0 100px;
     }
@@ -1247,7 +1246,7 @@
       transform: translateY(-2px);
     }
 
-    /* 網站頁尾 (Section 5.10) */
+    /* 頁尾 Footer */
     .site-footer {
       background: #1C120C;
       color: #BDB0A8;
@@ -1294,7 +1293,7 @@
       color: #8C7B71;
     }
 
-    /* 側邊購物車抽屜 (Section 6) */
+    /* 購物車側邊抽屜 (Drawer) */
     .cart-drawer-overlay {
       position: fixed;
       inset: 0;
@@ -1412,7 +1411,7 @@
       gap: 6px;
     }
 
-    /* 浮動吐司提示 Toast (Section 6) */
+    /* 吐司通知 Toast */
     .toast-notice {
       position: fixed;
       bottom: 30px;
@@ -1439,7 +1438,7 @@
       opacity: 1;
     }
 
-    /* 響應式斷點設定 (Section 7) */
+    /* 響應式 RWD 斷點設定 */
     @media (max-width: 1024px) {
       .hero-layout {
         grid-template-columns: 1fr;
@@ -1516,7 +1515,7 @@
 </head>
 <body>
 
-  <!-- 頂部促銷跑馬燈 -->
+  <!-- 頂部快訊跑馬燈 -->
   <div class="promo-topbar">
     <span class="badge-glow">狂歡限定</span>
     <span>🍊 COCO 多重水果季開跑！滿杯鮮果肉爆汁熱賣中 · 全店滿 $250 即贈限量聯名果香保冷托特包！</span>
@@ -1535,7 +1534,7 @@
       <!-- 導覽連結 -->
       <nav>
         <ul class="nav-links">
-          <li><a href="#fruit-style" class="active">水果的特色</a></li>
+          <li><a href="#fruit-style" class="active">水果特色</a></li>
           <li><a href="#menu">果香特調</a></li>
           <li><a href="#sweet-guide">甜度指南</a></li>
           <li><a href="#collab">聯名周邊</a></li>
@@ -1543,7 +1542,7 @@
         </ul>
       </nav>
 
-      <!-- 導覽功能按鈕組 -->
+      <!-- 導覽按鈕群組 -->
       <div class="nav-actions">
         <a href="#collab" class="btn btn-collab">搶先看聯名 ✨</a>
         <a href="#menu" class="btn btn-primary">立即點餐 🥤</a>
@@ -1565,7 +1564,7 @@
           <span>🍹</span> 主打多重水果風格 · 甜食控的果茶天堂
         </div>
         <h1 class="hero-title">
-          每一口都是鮮甜可口果香<br>
+          每一口都是鮮甜果香<br>
           <span class="highlight">多重水果 × 狂歡聯名</span>
         </h1>
         <p class="hero-desc">
@@ -1582,7 +1581,7 @@
           </a>
         </div>
 
-        <!-- 3 大亮點數據卡 -->
+        <!-- 亮點統計 -->
         <div class="hero-highlights">
           <div class="highlight-card">
             <span class="stat">100%</span>
@@ -1599,7 +1598,7 @@
         </div>
       </div>
 
-      <!-- 右側手搖杯視覺插畫 -->
+      <!-- 右側杯身視覺插畫 -->
       <div class="hero-visual">
         <div class="cup-card-main">
           
@@ -1611,7 +1610,7 @@
             <span>🎁</span> 買飲料享聯名加購
           </div>
 
-          <!-- 手搖杯 SVG 視覺插畫 -->
+          <!-- 手搖杯 SVG 視覺插畫 (橙色多重水果茶) -->
           <div class="cup-illustration">
             <svg class="drink-art" viewBox="0 0 240 320" fill="none" xmlns="http://www.w3.org/2000/svg">
               <!-- 吸管 -->
@@ -1622,10 +1621,11 @@
               <rect x="35" y="78" width="170" height="10" rx="5" fill="#FF6600"/>
               
               <!-- 透明杯身與多重水果漸層液體 -->
-              <path d="M48 88L65 285C66 296 75 304 86 304H154C165 304 174 296 175 285L192 88H48Z" fill="url(#drinkGradientOnePage)"/>
+              <path d="M48 88L65 285C66 296 75 304 86 304H154C165 304 174 296 175 285L192 88H48Z" fill="url(#drinkGradient)"/>
               
+              <!-- 水果漸層定義 -->
               <defs>
-                <linearGradient id="drinkGradientOnePage" x1="120" y1="88" x2="120" y2="304" gradientUnits="userSpaceOnUse">
+                <linearGradient id="drinkGradient" x1="120" y1="88" x2="120" y2="304" gradientUnits="userSpaceOnUse">
                   <stop offset="0%" stop-color="#FFA834"/>
                   <stop offset="35%" stop-color="#FF7B00"/>
                   <stop offset="70%" stop-color="#FF5500"/>
@@ -1655,6 +1655,7 @@
               <circle cx="108" cy="285" r="9" fill="#3D1D00"/>
               <circle cx="132" cy="280" r="10.5" fill="#231000"/>
               <circle cx="155" cy="272" r="9" fill="#3D1D00"/>
+              <!-- 晶球椰果方塊 -->
               <rect x="75" y="240" width="14" height="14" rx="3" fill="#FFFFFF" fill-opacity="0.85"/>
               <rect x="115" y="230" width="13" height="13" rx="3" fill="#FFFFFF" fill-opacity="0.85"/>
 
@@ -1673,7 +1674,7 @@
     </div>
   </section>
 
-  <!-- 品牌風格：多重水果工藝區 -->
+  <!-- 品牌風格區塊 (主打多重水果風格的飲品) -->
   <section class="brand-style-section" id="fruit-style">
     <div class="container">
       <div class="section-header">
@@ -1719,7 +1720,7 @@
 
       </div>
 
-      <!-- 風味輪橫幅 -->
+      <!-- 風味橫幅 -->
       <div class="fruit-banner">
         <div class="fruit-banner-text">
           <h4>🌟 COCO 水果季專屬：熱帶多重鮮果盛宴</h4>
@@ -1994,7 +1995,7 @@
     </div>
   </section>
 
-  <!-- 目標受眾專屬：螞蟻人甜度指南 -->
+  <!-- 目標受眾專屬互動區：愛喝甜的專屬甜度指南 -->
   <section class="sweet-paradise-section" id="sweet-guide">
     <div class="container">
       <div class="section-header">
@@ -2069,7 +2070,7 @@
     </div>
   </section>
 
-  <!-- 聯名商品專區：吸引消費者購買 -->
+  <!-- 聯名商品專區 (功能亮點：聯名商品吸引消費者購買) -->
   <section class="collab-section" id="collab">
     <div class="container">
       
@@ -2109,7 +2110,7 @@
           </div>
         </div>
 
-        <!-- 聯名特製商品視覺插畫 -->
+        <!-- 聯名特製商品視覺 -->
         <div class="collab-visual-box">
           <div class="collab-merch-showcase">
             <svg class="collab-special-svg" viewBox="0 0 160 180" fill="none">
@@ -2118,7 +2119,7 @@
               <rect x="35" y="24" width="90" height="12" rx="6" fill="#FF6600"/>
               <!-- 吸管 -->
               <rect x="75" y="0" width="10" height="40" rx="5" fill="#FFA500"/>
-              <!-- IP 聯名印花 (可愛蜜桃兔) -->
+              <!-- IP 聯名印花 (可愛蜜桃兔臉) -->
               <circle cx="80" cy="85" r="24" fill="#FFE5D9"/>
               <ellipse cx="72" cy="54" rx="5" ry="14" fill="#FFE5D9" transform="rotate(-10 72 54)"/>
               <ellipse cx="88" cy="54" rx="5" ry="14" fill="#FFE5D9" transform="rotate(10 88 54)"/>
@@ -2136,7 +2137,7 @@
         </div>
       </div>
 
-      <!-- 4 大聯名商品卡片網格 -->
+      <!-- 4 大聯名商品與周邊搶購網格 (吸引消費者購買) -->
       <div class="section-header" style="margin-bottom: 35px;">
         <span class="section-eyebrow">EXCLUSIVE MERCHANDISE</span>
         <h2 class="section-title">
@@ -2149,7 +2150,7 @@
 
       <div class="merch-grid" id="merchGrid">
 
-        <!-- 周邊 1: 盲盒公仔吸管杯 -->
+        <!-- 周邊 1: 聯名盲盒公仔吸管杯 -->
         <div class="merch-card">
           <span class="merch-tag-limited">限量 3000 組</span>
           <div class="merch-icon-box">🥤</div>
@@ -2206,7 +2207,7 @@
           </button>
         </div>
 
-        <!-- 周邊 4: 雷射立體徽章組 -->
+        <!-- 周邊 4: 聯名限量雷射立體徽章組 -->
         <div class="merch-card">
           <span class="merch-tag-limited">收藏家必搶</span>
           <div class="merch-icon-box">✨</div>
@@ -2230,7 +2231,7 @@
     </div>
   </section>
 
-  <!-- 顧客好評推薦區塊 -->
+  <!-- 顧客評價區塊 (手搖控真實口碑) -->
   <section class="review-section" id="reviews">
     <div class="container">
       <div class="section-header">
@@ -2378,7 +2379,7 @@
   <div class="cart-drawer" id="cartDrawer">
     <div class="drawer-header">
       <h3>
-        <span>🛒</span> 我點餐清單
+        <span>🛒</span> 我的點餐清單
       </h3>
       <button class="btn-close-drawer" onclick="toggleCartDrawer()">✕</button>
     </div>
@@ -2428,7 +2429,7 @@
     <span id="toastText">成功加入購物車！</span>
   </div>
 
-  <!-- JavaScript 互動功能 (Section 6) -->
+  <!-- JavaScript 互動功能 -->
   <script>
     // 購物車數據與狀態
     let currentTotal = 164;
