@@ -1,0 +1,2601 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="COCO手搖飲官方品牌網站 - 主打多重水果風格飲品，專為愛喝甜的你調配的果香手搖！超人氣限定IP聯名商品熱烈開賣中，滿杯真果粒，口口酸甜爆汁！">
+  <title>COCO 手搖飲｜多重鮮果風格 · 甜蜜聯名大賞</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;900&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================
+       CSS 變數系統 - 以橙色 (Orange) 為核心品牌識別色彩
+       ========================================================== */
+    :root {
+      --coco-orange-primary: #FF6600;     /* COCO 經典鮮橙主色 */
+      --coco-orange-dark: #E64A00;        /* 焦糖深橙 */
+      --coco-orange-light: #FF8533;       /* 亮橙果色 */
+      --coco-orange-glow: #FFA04D;        /* 柔光橙 */
+      --coco-orange-bg: #FFF5EE;          /* 蜜柑粉白底色 */
+      --coco-peach: #FF7E67;              /* 水蜜桃果粉 */
+      --coco-yellow: #FFB703;             /* 芒果金黃 */
+      --coco-amber: #FB8500;              /* 暖琥珀色 */
+      
+      --text-main: #231815;               /* 主文字深褐黑 */
+      --text-muted: #6C5E57;              /* 次要文字 */
+      --text-light: #9B8D85;              /* 淺灰文字 */
+      --bg-white: #FFFFFF;
+      --bg-card: #FFFFFF;
+      --border-soft: #F2E3DA;             /* 柔和暖色外框 */
+      
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-pill: 9999px;
+      
+      --shadow-sm: 0 4px 12px rgba(255, 102, 0, 0.08);
+      --shadow-md: 0 8px 24px rgba(255, 102, 0, 0.14);
+      --shadow-lg: 0 16px 40px rgba(230, 74, 0, 0.18);
+      --shadow-float: 0 20px 45px -10px rgba(255, 102, 0, 0.35);
+
+      --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      --transition-normal: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif;
+      color: var(--text-main);
+      background-color: var(--coco-orange-bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .container {
+      width: min(1200px, 92%);
+      margin-inline: auto;
+    }
+
+    /* 頂部通知條 */
+    .promo-topbar {
+      background: linear-gradient(90deg, #FF6600, #FB8500, #FF6600);
+      background-size: 200% auto;
+      animation: gradientShift 6s ease infinite;
+      color: #fff;
+      font-size: 0.88rem;
+      font-weight: 700;
+      text-align: center;
+      padding: 8px 16px;
+      letter-spacing: 0.04em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+    }
+    .promo-topbar .badge-glow {
+      background: #FFF;
+      color: var(--coco-orange-dark);
+      padding: 2px 10px;
+      border-radius: var(--radius-pill);
+      font-size: 0.75rem;
+      font-weight: 900;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* 導覽列 */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255, 102, 0, 0.12);
+      transition: var(--transition-normal);
+    }
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 76px;
+    }
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 900;
+      font-size: 1.85rem;
+      color: var(--coco-orange-primary);
+      letter-spacing: -0.02em;
+    }
+    .brand-logo .logo-circle {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, var(--coco-orange-primary), #FF8533);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.45rem;
+      box-shadow: 0 4px 12px rgba(255, 102, 0, 0.35);
+    }
+    .brand-logo .subtext {
+      font-size: 0.85rem;
+      font-weight: 700;
+      background: #FFE5D4;
+      color: var(--coco-orange-dark);
+      padding: 3px 8px;
+      border-radius: 6px;
+      letter-spacing: 0.05em;
+      margin-left: 4px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: var(--text-main);
+      transition: var(--transition-fast);
+      position: relative;
+      padding: 6px 0;
+    }
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--coco-orange-primary);
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0%;
+      height: 2.5px;
+      background: var(--coco-orange-primary);
+      transition: var(--transition-fast);
+      border-radius: 2px;
+      transform: translateX(-50%);
+    }
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 24px;
+      border-radius: var(--radius-pill);
+      font-size: 0.95rem;
+      font-weight: 700;
+      transition: var(--transition-normal);
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--coco-orange-primary), #FF7700);
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(255, 102, 0, 0.35);
+    }
+    .btn-primary:hover {
+      background: linear-gradient(135deg, var(--coco-orange-dark), var(--coco-orange-primary));
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(255, 102, 0, 0.45);
+    }
+    .btn-collab {
+      background: #FFF;
+      color: var(--coco-orange-dark);
+      border: 2px solid var(--coco-orange-primary);
+    }
+    .btn-collab:hover {
+      background: #FFEAD9;
+      transform: translateY(-2px);
+    }
+
+    .cart-trigger {
+      position: relative;
+      background: #FFF;
+      border: 1px solid var(--border-soft);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition-fast);
+    }
+    .cart-trigger:hover {
+      border-color: var(--coco-orange-primary);
+      transform: scale(1.05);
+    }
+    .cart-badge {
+      position: absolute;
+      top: -2px;
+      right: -2px;
+      background: var(--coco-orange-primary);
+      color: #FFF;
+      font-size: 0.72rem;
+      font-weight: 800;
+      width: 19px;
+      height: 19px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #FFF;
+    }
+
+    /* Hero 巨幕區塊 */
+    .hero-section {
+      position: relative;
+      padding: 60px 0 90px;
+      background: radial-gradient(circle at 85% 30%, #FFE3CC 0%, rgba(255, 245, 238, 0) 65%),
+                  radial-gradient(circle at 10% 70%, #FFEAD4 0%, rgba(255, 245, 238, 0) 55%),
+                  var(--coco-orange-bg);
+      overflow: hidden;
+    }
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: center;
+      gap: 50px;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background: #FFE3D1;
+      border: 1px solid #FFC9A3;
+      border-radius: var(--radius-pill);
+      color: var(--coco-orange-dark);
+      font-size: 0.88rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+    .hero-tag span {
+      animation: pulse 1.8s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+    .hero-title {
+      font-size: clamp(2.3rem, 4.4vw, 3.8rem);
+      font-weight: 900;
+      line-height: 1.18;
+      color: var(--text-main);
+      margin-bottom: 22px;
+      letter-spacing: -0.025em;
+    }
+    .hero-title .highlight {
+      background: linear-gradient(120deg, var(--coco-orange-primary), #FF8533);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+    .hero-desc {
+      font-size: 1.12rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin-bottom: 24px;
+      max-width: 580px;
+    }
+    .hero-video-box {
+      width: 100%;
+      max-width: 560px;
+      margin: 20px 0 28px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(255, 102, 0, 0.16);
+      border: 2px solid #FFD9BD;
+      background: #000;
+      position: relative;
+      aspect-ratio: 16 / 9;
+    }
+    .hero-video-box iframe {
+      width: 100%;
+      height: 100%;
+      display: block;
+      border: none;
+    }
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 44px;
+    }
+    .hero-highlights {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      padding-top: 28px;
+      border-top: 1px dashed #E6C8B5;
+    }
+    .highlight-card {
+      background: rgba(255, 255, 255, 0.7);
+      padding: 12px 14px;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(255, 102, 0, 0.12);
+    }
+    .highlight-card .stat {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--coco-orange-primary);
+      display: block;
+      line-height: 1.2;
+    }
+    .highlight-card .label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    /* Hero 右側互動式杯裝水果視覺 */
+    .hero-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .cup-card-main {
+      width: 100%;
+      max-width: 440px;
+      background: linear-gradient(145deg, #FFFFFF, #FFF1E6);
+      border: 2px solid #FFD9BD;
+      border-radius: 36px;
+      padding: 30px 24px;
+      box-shadow: var(--shadow-float);
+      position: relative;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .hero-image-container {
+      width: 400px;
+      max-width: 100%;
+      height: 300px;
+      margin: 10px auto 20px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(255, 102, 0, 0.2);
+    }
+    .hero-photo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .hero-photo-img:hover {
+      transform: scale(1.03);
+    }
+    .cup-illustration {
+      width: 220px;
+      height: 290px;
+      margin: 0 auto 20px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .drink-art {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 14px 20px rgba(255, 102, 0, 0.25));
+      animation: floatCup 4s ease-in-out infinite alternate;
+    }
+    @keyframes floatCup {
+      0% { transform: translateY(0px) rotate(-1deg); }
+      100% { transform: translateY(-12px) rotate(1.5deg); }
+    }
+    .floating-pill {
+      position: absolute;
+      background: #FFFFFF;
+      padding: 8px 16px;
+      border-radius: var(--radius-pill);
+      font-size: 0.85rem;
+      font-weight: 800;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      z-index: 5;
+    }
+    .pill-1 {
+      top: 15px;
+      right: -15px;
+      color: var(--coco-orange-dark);
+      border: 1.5px solid #FFC299;
+      animation: floatPill1 3.5s ease-in-out infinite alternate;
+    }
+    .pill-2 {
+      bottom: 45px;
+      left: -20px;
+      color: #D84A00;
+      border: 1.5px solid #FFBD99;
+      animation: floatPill2 4s ease-in-out infinite alternate;
+    }
+    @keyframes floatPill1 {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-8px); }
+    }
+    @keyframes floatPill2 {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(8px); }
+    }
+    .cup-info-badge {
+      background: linear-gradient(135deg, var(--coco-orange-primary), #FF8533);
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: var(--radius-md);
+      display: inline-block;
+      font-weight: 800;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 14px rgba(255, 102, 0, 0.3);
+    }
+
+    /* 區塊標題公用樣式 */
+    .section-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 50px;
+    }
+    .section-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--coco-orange-primary);
+      font-size: 0.85rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 10px;
+      background: #FFE8D6;
+      padding: 4px 14px;
+      border-radius: var(--radius-pill);
+    }
+    .section-title {
+      font-size: clamp(1.9rem, 3.2vw, 2.6rem);
+      font-weight: 900;
+      color: var(--text-main);
+      margin-bottom: 14px;
+      line-height: 1.25;
+    }
+    .section-title span {
+      color: var(--coco-orange-primary);
+    }
+    .section-sub {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    /* 品牌風格區塊 (主打多重水果風格) */
+    .brand-style-section {
+      padding: 90px 0;
+      background: #FFFFFF;
+      position: relative;
+    }
+    .fruit-features-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .feature-card {
+      background: var(--coco-orange-bg);
+      border-radius: var(--radius-lg);
+      padding: 32px 24px;
+      border: 1px solid #FFE3D1;
+      transition: var(--transition-normal);
+      position: relative;
+      overflow: hidden;
+    }
+    .feature-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--coco-orange-primary);
+      background: #FFF;
+    }
+    .feature-icon-wrapper {
+      width: 66px;
+      height: 66px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #FFE7D4, #FFD2B3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      margin-bottom: 22px;
+      box-shadow: 0 4px 14px rgba(255, 102, 0, 0.15);
+      transition: var(--transition-fast);
+    }
+    .feature-card:hover .feature-icon-wrapper {
+      background: linear-gradient(135deg, var(--coco-orange-primary), #FF8533);
+      color: #fff;
+      transform: rotate(5deg) scale(1.08);
+    }
+    .feature-card h3 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      color: var(--text-main);
+    }
+    .feature-card p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+    .feature-tag {
+      display: inline-block;
+      margin-top: 16px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--coco-orange-dark);
+      background: #FFE8DA;
+      padding: 3px 10px;
+      border-radius: var(--radius-pill);
+    }
+
+    /* 多重水果風味輪 (Flavor Wheel Banner) */
+    .fruit-banner {
+      margin-top: 55px;
+      background: linear-gradient(135deg, #FF6600, #E64A00);
+      border-radius: 28px;
+      padding: 38px 46px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      box-shadow: var(--shadow-lg);
+    }
+    .fruit-banner-text h4 {
+      font-size: 1.6rem;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+    .fruit-banner-text p {
+      font-size: 0.98rem;
+      opacity: 0.92;
+      max-width: 600px;
+    }
+    .fruit-tags-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .fruit-pill-item {
+      background: rgba(255, 255, 255, 0.22);
+      backdrop-filter: blur(8px);
+      padding: 6px 16px;
+      border-radius: var(--radius-pill);
+      font-size: 0.88rem;
+      font-weight: 700;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+    }
+
+    /* 產品菜單區塊 (多重水果風格飲品) */
+    .menu-section {
+      padding: 90px 0;
+      background: var(--coco-orange-bg);
+    }
+    .menu-tabs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 45px;
+    }
+    .tab-btn {
+      padding: 10px 24px;
+      border-radius: var(--radius-pill);
+      font-size: 0.95rem;
+      font-weight: 700;
+      background: #FFFFFF;
+      color: var(--text-muted);
+      border: 1.5px solid #EED7C8;
+      transition: var(--transition-fast);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .tab-btn:hover {
+      border-color: var(--coco-orange-primary);
+      color: var(--coco-orange-primary);
+    }
+    .tab-btn.active {
+      background: var(--coco-orange-primary);
+      color: #FFFFFF;
+      border-color: var(--coco-orange-primary);
+      box-shadow: 0 4px 14px rgba(255, 102, 0, 0.32);
+    }
+
+    .drink-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+    .drink-card {
+      background: #FFFFFF;
+      border-radius: var(--radius-lg);
+      border: 1.5px solid #F5DFD0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition-normal);
+      position: relative;
+    }
+    .drink-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--coco-orange-primary);
+    }
+    .card-badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: linear-gradient(135deg, var(--coco-orange-primary), #FF8533);
+      color: #fff;
+      font-size: 0.76rem;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+      z-index: 3;
+      box-shadow: 0 3px 8px rgba(255, 102, 0, 0.3);
+    }
+    .card-sweetness {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: #FFF4EC;
+      color: var(--coco-orange-dark);
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      border: 1px solid #FFD3B5;
+      z-index: 3;
+    }
+    .drink-image-box {
+      height: 220px;
+      background: radial-gradient(circle, #FFF0E4 0%, #FFE4D0 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .drink-visual-svg {
+      width: 140px;
+      height: 170px;
+      filter: drop-shadow(0 10px 15px rgba(255, 102, 0, 0.22));
+      transition: transform 0.4s ease;
+    }
+    .drink-card:hover .drink-visual-svg {
+      transform: scale(1.08) rotate(2deg);
+    }
+
+    .drink-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .drink-title {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 6px;
+    }
+    .drink-en {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-light);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .drink-ingredients {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+    .ingredient-tag {
+      font-size: 0.74rem;
+      background: #FFF0E5;
+      color: var(--coco-orange-dark);
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-weight: 700;
+    }
+    .drink-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+    .drink-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 16px;
+      border-top: 1px dashed #F0D4C2;
+    }
+    .price-box {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+    }
+    .price-symbol {
+      color: var(--coco-orange-primary);
+      font-size: 1rem;
+      font-weight: 800;
+    }
+    .price-num {
+      color: var(--coco-orange-primary);
+      font-size: 1.55rem;
+      font-weight: 900;
+    }
+    .price-origin {
+      color: var(--text-light);
+      font-size: 0.82rem;
+      text-decoration: line-through;
+    }
+    .btn-add-drink {
+      background: #FFEAD9;
+      color: var(--coco-orange-dark);
+      padding: 8px 18px;
+      border-radius: var(--radius-pill);
+      font-size: 0.86rem;
+      font-weight: 800;
+      transition: var(--transition-fast);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-add-drink:hover {
+      background: var(--coco-orange-primary);
+      color: #FFF;
+      box-shadow: 0 4px 12px rgba(255, 102, 0, 0.35);
+    }
+
+    /* 甜蜜專屬區塊 (目標受眾：愛喝甜的) */
+    .sweet-paradise-section {
+      padding: 90px 0;
+      background: linear-gradient(180deg, #FFFFFF 0%, #FFF5ED 100%);
+      position: relative;
+    }
+    .sweet-interactive-box {
+      background: #FFFFFF;
+      border-radius: 32px;
+      border: 2px solid #FFD9C0;
+      box-shadow: var(--shadow-md);
+      padding: 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+    .sugar-guide h3 {
+      font-size: 1.85rem;
+      font-weight: 900;
+      margin-bottom: 12px;
+      color: var(--text-main);
+    }
+    .sugar-guide p {
+      color: var(--text-muted);
+      margin-bottom: 28px;
+      font-size: 1rem;
+    }
+    .sugar-levels-selector {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+    .sugar-option {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 20px;
+      border-radius: var(--radius-md);
+      background: #FFF9F4;
+      border: 1.5px solid #FFE4D1;
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+    .sugar-option:hover {
+      border-color: var(--coco-orange-primary);
+    }
+    .sugar-option.active {
+      background: #FFF1E5;
+      border-color: var(--coco-orange-primary);
+      box-shadow: 0 4px 14px rgba(255, 102, 0, 0.15);
+    }
+    .sugar-option-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 1rem;
+      color: var(--text-main);
+    }
+    .sugar-option-badge {
+      font-size: 0.78rem;
+      padding: 2px 10px;
+      border-radius: var(--radius-pill);
+      font-weight: 700;
+    }
+    .badge-sweet-lover {
+      background: #FF6600;
+      color: #fff;
+    }
+    .badge-sweet-normal {
+      background: #FFE0CC;
+      color: var(--coco-orange-dark);
+    }
+
+    .sweet-display-card {
+      background: linear-gradient(145deg, #FF7700, #E64A00);
+      color: #fff;
+      border-radius: 28px;
+      padding: 40px 32px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 16px 36px rgba(230, 74, 0, 0.35);
+    }
+    .sweet-display-card::before {
+      content: 'SWEET';
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      font-size: 5rem;
+      font-weight: 900;
+      color: rgba(255, 255, 255, 0.08);
+      pointer-events: none;
+    }
+    .sweet-meter-icon {
+      font-size: 3.5rem;
+      margin-bottom: 14px;
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    .sweet-recommend-title {
+      font-size: 1.55rem;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+    .sweet-recommend-desc {
+      font-size: 0.96rem;
+      line-height: 1.7;
+      opacity: 0.95;
+      margin-bottom: 24px;
+    }
+    .toppings-wrapper {
+      background: rgba(255, 255, 255, 0.16);
+      border-radius: 18px;
+      padding: 16px;
+      text-align: left;
+    }
+    .toppings-title {
+      font-size: 0.86rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .toppings-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .chip {
+      background: #FFF;
+      color: var(--coco-orange-dark);
+      font-size: 0.78rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+    }
+
+    /* 聯名商品專區 (功能：聯名商品吸引消費者購買) */
+    .collab-section {
+      padding: 100px 0;
+      background: radial-gradient(circle at 10% 20%, #FFF0E4 0%, transparent 40%),
+                  radial-gradient(circle at 90% 80%, #FFE6D5 0%, transparent 45%),
+                  #FFFFFF;
+      position: relative;
+    }
+    .collab-hero-card {
+      background: linear-gradient(135deg, #2D1A12 0%, #4D2612 100%);
+      color: #fff;
+      border-radius: 36px;
+      padding: 55px;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 45px;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(45, 26, 18, 0.28);
+      margin-bottom: 60px;
+    }
+    .collab-hero-card::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(255, 102, 0, 0.3) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .collab-glow-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(90deg, #FF6600, #FFA04D);
+      padding: 6px 18px;
+      border-radius: var(--radius-pill);
+      font-size: 0.86rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+    .collab-hero-title {
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: 18px;
+    }
+    .collab-hero-title .glow-text {
+      color: #FFA559;
+      text-shadow: 0 0 20px rgba(255, 165, 89, 0.4);
+    }
+    .collab-hero-desc {
+      font-size: 1.05rem;
+      color: #D6C2B4;
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    /* 倒數計時器 */
+    .countdown-box {
+      margin-bottom: 34px;
+    }
+    .countdown-label {
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: #FFC099;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .timer-digits {
+      display: flex;
+      gap: 12px;
+    }
+    .time-slot {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 165, 89, 0.3);
+      border-radius: 12px;
+      padding: 10px 14px;
+      min-width: 68px;
+      text-align: center;
+    }
+    .time-num {
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: #FFF;
+      line-height: 1;
+      display: block;
+      font-variant-numeric: tabular-nums;
+    }
+    .time-unit {
+      font-size: 0.7rem;
+      color: #CDB3A3;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-top: 4px;
+      display: block;
+    }
+
+    .collab-visual-box {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .collab-merch-showcase {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 28px;
+      padding: 30px;
+      text-align: center;
+      backdrop-filter: blur(12px);
+    }
+    .collab-special-svg {
+      width: 200px;
+      height: 220px;
+      margin: 0 auto 16px;
+      animation: floatCup 4s ease-in-out infinite alternate;
+    }
+
+    /* 聯名周邊商品卡片網格 */
+    .merch-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .merch-card {
+      background: #FFFFFF;
+      border-radius: 22px;
+      border: 1.5px solid #F5DFD0;
+      padding: 24px 20px;
+      text-align: center;
+      transition: var(--transition-normal);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      box-shadow: var(--shadow-sm);
+    }
+    .merch-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--coco-orange-primary);
+    }
+    .merch-tag-limited {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: #FF3B30;
+      color: #FFF;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: var(--radius-pill);
+    }
+    .merch-icon-box {
+      width: 100px;
+      height: 100px;
+      margin: 15px auto 18px;
+      background: #FFF2E8;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.8rem;
+      box-shadow: inset 0 2px 8px rgba(255, 102, 0, 0.15);
+      transition: var(--transition-fast);
+    }
+    .merch-card:hover .merch-icon-box {
+      transform: scale(1.1) rotate(6deg);
+      background: #FFE2CC;
+    }
+    .merch-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+      color: var(--text-main);
+    }
+    .merch-condition {
+      font-size: 0.82rem;
+      color: var(--coco-orange-dark);
+      font-weight: 700;
+      background: #FFEADA;
+      padding: 4px 10px;
+      border-radius: 6px;
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+    .merch-desc {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 18px;
+      flex-grow: 1;
+    }
+    .merch-price-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+    .merch-add-btn {
+      width: 100%;
+      background: var(--coco-orange-primary);
+      color: #FFF;
+      padding: 10px;
+      border-radius: var(--radius-pill);
+      font-size: 0.88rem;
+      font-weight: 800;
+      transition: var(--transition-fast);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .merch-add-btn:hover {
+      background: var(--coco-orange-dark);
+      box-shadow: 0 4px 14px rgba(255, 102, 0, 0.35);
+    }
+
+    /* 顧客口碑推薦區 */
+    .review-section {
+      padding: 85px 0;
+      background: var(--coco-orange-bg);
+    }
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .review-card {
+      background: #FFFFFF;
+      border-radius: 20px;
+      padding: 28px;
+      border: 1px solid #F0D5C3;
+      box-shadow: var(--shadow-sm);
+    }
+    .review-stars {
+      color: #FFB703;
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+    }
+    .review-text {
+      font-size: 0.94rem;
+      color: var(--text-main);
+      line-height: 1.65;
+      margin-bottom: 18px;
+    }
+    .reviewer-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .reviewer-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #FFE2CC;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+    }
+    .reviewer-name {
+      font-weight: 800;
+      font-size: 0.94rem;
+      color: var(--text-main);
+    }
+    .reviewer-sub {
+      font-size: 0.78rem;
+      color: var(--text-light);
+    }
+
+    /* CTA 促銷大條幅 */
+    .cta-banner-section {
+      padding: 60px 0 100px;
+    }
+    .cta-box {
+      background: linear-gradient(135deg, #FF6600 0%, #FF8533 100%);
+      border-radius: 36px;
+      padding: 60px 50px;
+      text-align: center;
+      color: #fff;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-box h2 {
+      font-size: clamp(2rem, 3.8vw, 3rem);
+      font-weight: 900;
+      margin-bottom: 14px;
+    }
+    .cta-box p {
+      font-size: 1.15rem;
+      opacity: 0.95;
+      margin-bottom: 32px;
+      max-width: 620px;
+      margin-inline: auto;
+    }
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn-light {
+      background: #FFFFFF;
+      color: var(--coco-orange-dark);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    }
+    .btn-light:hover {
+      background: #FFF5EE;
+      transform: translateY(-2px);
+    }
+
+    /* 頁尾 Footer */
+    .site-footer {
+      background: #1C120C;
+      color: #BDB0A8;
+      padding: 70px 0 35px;
+      font-size: 0.92rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+      gap: 45px;
+      margin-bottom: 50px;
+    }
+    .footer-brand .brand-logo {
+      color: #FFF;
+      margin-bottom: 16px;
+    }
+    .footer-brand p {
+      line-height: 1.7;
+      margin-bottom: 20px;
+      color: #A39389;
+    }
+    .footer-col h5 {
+      color: #FFF;
+      font-size: 1.05rem;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-links a:hover {
+      color: var(--coco-orange-light);
+    }
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.82rem;
+      color: #8C7B71;
+    }
+
+    /* 購物車側邊抽屜 (Drawer) */
+    .cart-drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+      z-index: 999;
+      opacity: 0;
+      pointer-events: none;
+      transition: var(--transition-normal);
+    }
+    .cart-drawer-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: min(440px, 100%);
+      height: 100%;
+      background: #FFF;
+      z-index: 1000;
+      transform: translateX(100%);
+      transition: var(--transition-normal);
+      display: flex;
+      flex-direction: column;
+      box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
+    }
+    .cart-drawer.active {
+      transform: translateX(0);
+    }
+    .drawer-header {
+      padding: 22px 24px;
+      border-bottom: 1px solid #F0D5C3;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .drawer-header h3 {
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-close-drawer {
+      font-size: 1.4rem;
+      color: var(--text-muted);
+      cursor: pointer;
+    }
+    .drawer-body {
+      padding: 20px 24px;
+      overflow-y: auto;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px;
+      background: #FFF9F5;
+      border-radius: 12px;
+      border: 1px solid #FFE3D1;
+    }
+    .cart-item-name {
+      font-weight: 800;
+      font-size: 0.94rem;
+      color: var(--text-main);
+    }
+    .cart-item-sub {
+      font-size: 0.78rem;
+      color: var(--text-light);
+    }
+    .cart-item-price {
+      font-weight: 900;
+      color: var(--coco-orange-primary);
+    }
+    .cart-remove-btn {
+      color: #999;
+      font-size: 0.8rem;
+      cursor: pointer;
+      margin-left: 8px;
+    }
+    .cart-remove-btn:hover {
+      color: #FF3B30;
+    }
+    .drawer-footer {
+      padding: 22px 24px;
+      border-top: 1px solid #F0D5C3;
+      background: #FFFBF8;
+    }
+    .cart-total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.15rem;
+      font-weight: 900;
+      margin-bottom: 16px;
+    }
+    .cart-perk-notice {
+      background: #FFEFE5;
+      border: 1px dashed var(--coco-orange-primary);
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 0.82rem;
+      color: var(--coco-orange-dark);
+      font-weight: 700;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* 吐司通知 Toast */
+    .toast-notice {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #1C120C;
+      color: #FFF;
+      padding: 14px 28px;
+      border-radius: var(--radius-pill);
+      font-size: 0.92rem;
+      font-weight: 800;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      border: 1.5px solid var(--coco-orange-primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 2000;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .toast-notice.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    /* 響應式 RWD 斷點設定 */
+    @media (max-width: 1024px) {
+      .hero-layout {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .hero-desc {
+        margin-inline: auto;
+      }
+      .hero-video-box {
+        margin-inline: auto;
+      }
+      .hero-buttons {
+        justify-content: center;
+      }
+      .hero-highlights {
+        max-width: 500px;
+        margin-inline: auto;
+      }
+      .fruit-features-grid,
+      .merch-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .drink-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .collab-hero-card {
+        grid-template-columns: 1fr;
+        padding: 40px 30px;
+        text-align: center;
+      }
+      .countdown-label {
+        justify-content: center;
+      }
+      .timer-digits {
+        justify-content: center;
+      }
+      .sweet-interactive-box {
+        grid-template-columns: 1fr;
+        padding: 36px 24px;
+      }
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      .promo-topbar {
+        font-size: 0.78rem;
+      }
+      .fruit-features-grid,
+      .merch-grid,
+      .drink-grid,
+      .review-grid {
+        grid-template-columns: 1fr;
+      }
+      .fruit-banner {
+        flex-direction: column;
+        padding: 30px 24px;
+        text-align: center;
+      }
+      .fruit-tags-row {
+        justify-content: center;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 頂部快訊跑馬燈 -->
+  <div class="promo-topbar">
+    <span class="badge-glow">狂歡限定</span>
+    <span>🍊 COCO 多重水果季開跑！滿杯鮮果肉爆汁熱賣中 · 全店滿 $250 即贈限量聯名果香保冷托特包！</span>
+  </div>
+
+  <!-- 網站 Header 導覽列 -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <!-- 品牌 Logo (COCO 橙色識別) -->
+      <a href="#hero" class="brand-logo" aria-label="COCO手搖飲首頁">
+        <div class="logo-circle">🍊</div>
+        <span>COCO</span>
+        <span class="subtext">手搖飲</span>
+      </a>
+
+      <!-- 導覽連結 -->
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#fruit-style" class="active">水果特色</a></li>
+          <li><a href="#menu">果香特調</a></li>
+          <li><a href="#sweet-guide">甜度指南</a></li>
+          <li><a href="#collab">聯名周邊</a></li>
+          <li><a href="#reviews">手搖好評</a></li>
+        </ul>
+      </nav>
+
+      <!-- 導覽按鈕群組 -->
+      <div class="nav-actions">
+        <a href="#collab" class="btn btn-collab">搶先看聯名 ✨</a>
+        <a href="#menu" class="btn btn-primary">立即點餐 🥤</a>
+        <button class="cart-trigger" id="cartTrigger" aria-label="查看購物車">
+          🛒
+          <span class="cart-badge" id="cartCount">2</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 主視覺區塊 (Hero Section) -->
+  <section class="hero-section" id="hero">
+    <div class="container hero-layout">
+      
+      <!-- 左側品牌主文案 -->
+      <div class="hero-content">
+        <div class="hero-tag">
+          <span>🍹</span> 主打多重水果風格 · 甜食控的果茶天堂
+        </div>
+        <h1 class="hero-title">
+          每一口都是鮮甜果香<br>
+          <span class="highlight">多重水果 × 狂歡聯名</span>
+        </h1>
+        <p class="hero-desc">
+          COCO 堅持選用當季爆汁鮮果，將金黃鮮橙、濃郁芒果與清脆百香果等多重果香層層交融。為「愛喝甜的」你量身特調，搭配當季超人氣聯名限定周邊，享受極致手搖幸福感！
+        </p>
+
+        <!-- 影片崁入 (YouTube) -->
+        <div class="hero-video-box">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/AdwwiNB1fRU" title="COCO手搖飲 多重水果風格 品牌形象影片" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+
+        <!-- CTA 按鈕群 -->
+        <div class="hero-buttons">
+          <a href="#menu" class="btn btn-primary" style="padding: 14px 32px; font-size: 1.05rem;">
+            🥤 探索人氣水果飲品
+          </a>
+          <a href="#collab" class="btn btn-collab" style="padding: 14px 28px; font-size: 1.05rem;">
+            🎁 限量聯名商品專區
+          </a>
+        </div>
+
+        <!-- 亮點統計 -->
+        <div class="hero-highlights">
+          <div class="highlight-card">
+            <span class="stat">100%</span>
+            <span class="label">嚴選飽滿真果肉</span>
+          </div>
+          <div class="highlight-card">
+            <span class="stat">5+ 層</span>
+            <span class="label">多重果香豐富口感</span>
+          </div>
+          <div class="highlight-card">
+            <span class="stat">99.8%</span>
+            <span class="label">愛喝甜的手搖控狂推</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 右側既有圖片 (不使用 CSS 插畫，使用既有圖片) -->
+      <div class="hero-visual">
+        <div class="cup-card-main">
+          
+          <!-- 漂浮標籤 -->
+          <div class="floating-pill pill-1">
+            <span>✨</span> 招牌百香雙響炮
+          </div>
+          <div class="floating-pill pill-2">
+            <span>🎁</span> 買飲料享聯名加購
+          </div>
+
+          <!-- 右欄既有圖片 -->
+          <div class="hero-image-container">
+            <img src="images/coco.png" alt="COCO手搖飲 多重水果飲品" width="400" height="300" class="hero-photo-img">
+          </div>
+
+          <div class="cup-info-badge">
+            🍊 雙重果肉 + 珍珠椰果雙重奏
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 品牌風格區塊 (主打多重水果風格的飲品) -->
+  <section class="brand-style-section" id="fruit-style">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">FRUIT CRAFT · 多重水果工藝</span>
+        <h2 class="section-title">
+          為什麼 <span>COCO 的多重果香</span> 讓人一口上癮？
+        </h2>
+        <p class="section-sub">
+          我們不只做水果茶，更將多種時令果物的香、酸、甜層次極致融合，創造出飽滿濃郁的味蕾盛宴。
+        </p>
+      </div>
+
+      <!-- 4 大多重水果特色卡片 -->
+      <div class="fruit-features-grid">
+        
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">🍊</div>
+          <h3>多重果韻交織</h3>
+          <p>現切香橙、爆汁百香與特選熱帶芒果，一口吸進三種水果前中後調的豐富果香。</p>
+          <span class="feature-tag">前酸 · 中甜 · 後回甘</span>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">🥭</div>
+          <h3>大塊鮮甜嚼感</h3>
+          <p>堅持吃得到大顆果肉纖維！搭配寒天晶球與Q彈椰果，每一口都充滿滿足嚼勁。</p>
+          <span class="feature-tag">100% 嚼感滿分</span>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">🍯</div>
+          <h3>天然蜜香調配</h3>
+          <p>針對「愛喝甜的」手搖控，嚴選龍眼花蜜與黃金蔗糖，襯托出熱帶果汁的鮮活甜蜜。</p>
+          <span class="feature-tag">甜而不膩的天然果蜜</span>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">❄️</div>
+          <h3>急速急凍鎖鮮</h3>
+          <p>採摘 24 小時內極速鮮榨低溫冷鏈配送，封存初摘水果的明亮香氣與豐沛維他命。</p>
+          <span class="feature-tag">產地直送鮮度保證</span>
+        </div>
+
+      </div>
+
+      <!-- 風味橫幅 -->
+      <div class="fruit-banner">
+        <div class="fruit-banner-text">
+          <h4>🌟 COCO 水果季專屬：熱帶多重鮮果盛宴</h4>
+          <p>精選百香果、香橙、芒果、水蜜桃、葡萄柚五大主角，任意搭配專屬甜度，點亮你的好心情！</p>
+        </div>
+        <div class="fruit-tags-row">
+          <span class="fruit-pill-item">百香果粒粒香</span>
+          <span class="fruit-pill-item">鮮切香橙雙片</span>
+          <span class="fruit-pill-item">香甜愛文芒果</span>
+          <span class="fruit-pill-item">粉嫩蜜桃啵啵</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 人氣飲品菜單區塊 -->
+  <section class="menu-section" id="menu">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">POPULAR MENU · 招牌推薦</span>
+        <h2 class="section-title">
+          超人氣 <span>多重水果特調系列</span>
+        </h2>
+        <p class="section-sub">
+          嚴選推薦！每一款都是愛喝甜的消費者票選冠軍，點一杯開啟滿滿元氣！
+        </p>
+      </div>
+
+      <!-- 分類標籤切換 -->
+      <div class="menu-tabs">
+        <button class="tab-btn active" onclick="filterMenu('all')">🌟 全部熱門水果飲</button>
+        <button class="tab-btn" onclick="filterMenu('signature')">🍊 招牌雙響果茶</button>
+        <button class="tab-btn" onclick="filterMenu('smoothie')">🥭 濃郁果昔甜乳</button>
+        <button class="tab-btn" onclick="filterMenu('limited')">🍓 聯名限定果飲</button>
+      </div>
+
+      <!-- 飲品卡片網格 -->
+      <div class="drink-grid" id="drinksContainer">
+
+        <!-- 飲品 1: 百香雙響炮 -->
+        <div class="drink-card" data-category="signature">
+          <span class="card-badge">鎮店銷售 TOP 1</span>
+          <span class="card-sweetness">🍯 甜度推薦：少糖/全糖</span>
+          <div class="drink-image-box">
+            <svg class="drink-visual-svg" viewBox="0 0 100 130">
+              <rect x="25" y="18" width="50" height="98" rx="10" fill="#FF8C00"/>
+              <rect x="28" y="24" width="44" height="90" rx="8" fill="#FFA500"/>
+              <circle cx="45" cy="55" r="3" fill="#3D1D00"/><circle cx="55" cy="65" r="3.5" fill="#3D1D00"/>
+              <circle cx="40" cy="80" r="3" fill="#3D1D00"/><circle cx="60" cy="85" r="4" fill="#3D1D00"/>
+              <circle cx="36" cy="98" r="6" fill="#1C1005"/><circle cx="50" cy="100" r="6" fill="#1C1005"/>
+              <circle cx="64" cy="98" r="6" fill="#1C1005"/>
+              <rect x="22" y="12" width="56" height="8" rx="4" fill="#FF5500"/>
+              <rect x="58" y="0" width="6" height="24" rx="3" fill="#FF8800" transform="rotate(10 58 0)"/>
+            </svg>
+          </div>
+          <div class="drink-body">
+            <h3 class="drink-title">百香雙響炮</h3>
+            <span class="drink-en">Passion Fruit Double Burst</span>
+            <div class="drink-ingredients">
+              <span class="ingredient-tag">現挖百香果</span>
+              <span class="ingredient-tag">高纖椰果</span>
+              <span class="ingredient-tag">Q彈波霸珍珠</span>
+            </div>
+            <p class="drink-desc">
+              COCO 全球熱銷傳奇！酸酸甜甜的百香果原汁，搭配椰果與珍珠的雙重嚼勁，每一口都爆汁暢快！
+            </p>
+            <div class="drink-footer">
+              <div class="price-box">
+                <span class="price-symbol">$</span>
+                <span class="price-num">65</span>
+                <span class="price-origin">$75</span>
+              </div>
+              <button class="btn-add-drink" onclick="addToCart('百香雙響炮', 65, '手搖飲')">
+                + 加入購物車
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 飲品 2: 鮮橙金芒多重綠 -->
+        <div class="drink-card" data-category="signature">
+          <span class="card-badge">當季果肉爆量</span>
+          <span class="card-sweetness">🍯 甜度推薦：少糖</span>
+          <div class="drink-image-box">
+            <svg class="drink-visual-svg" viewBox="0 0 100 130">
+              <rect x="25" y="18" width="50" height="98" rx="10" fill="#FF9E00"/>
+              <rect x="28" y="24" width="44" height="90" rx="8" fill="#FFB703"/>
+              <circle cx="48" cy="45" r="14" fill="#FFD166" stroke="#FB8500" stroke-width="2"/>
+              <rect x="35" y="70" width="10" height="10" rx="2" fill="#E65100"/>
+              <rect x="52" y="78" width="9" height="9" rx="2" fill="#E65100"/>
+              <rect x="40" y="92" width="10" height="10" rx="2" fill="#E65100"/>
+              <rect x="22" y="12" width="56" height="8" rx="4" fill="#FB8500"/>
+              <rect x="58" y="0" width="6" height="24" rx="3" fill="#FB8500" transform="rotate(10 58 0)"/>
+            </svg>
+          </div>
+          <div class="drink-body">
+            <h3 class="drink-title">鮮橙金芒多重綠</h3>
+            <span class="drink-en">Orange Mango Green Tea</span>
+            <div class="drink-ingredients">
+              <span class="ingredient-tag">新鮮柳橙汁</span>
+              <span class="ingredient-tag">愛文芒果丁</span>
+              <span class="ingredient-tag">茉莉綠茶</span>
+            </div>
+            <p class="drink-desc">
+              整顆香橙現榨入杯，融合香甜芒果泥與清雅茉莉綠茶，果香四溢、甜美回甘，解渴度 100%！
+            </p>
+            <div class="drink-footer">
+              <div class="price-box">
+                <span class="price-symbol">$</span>
+                <span class="price-num">70</span>
+                <span class="price-origin">$80</span>
+              </div>
+              <button class="btn-add-drink" onclick="addToCart('鮮橙金芒多重綠', 70, '手搖飲')">
+                + 加入購物車
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 飲品 3: 蜜桃草莓啵啵茶 (聯名限定) -->
+        <div class="drink-card" data-category="limited">
+          <span class="card-badge" style="background: #E91E63;">💖 聯名限定特調</span>
+          <span class="card-sweetness">🍯 甜度推薦：全糖</span>
+          <div class="drink-image-box">
+            <svg class="drink-visual-svg" viewBox="0 0 100 130">
+              <rect x="25" y="18" width="50" height="98" rx="10" fill="#FF70A6"/>
+              <rect x="28" y="24" width="44" height="90" rx="8" fill="#FF9770"/>
+              <circle cx="42" cy="70" r="5" fill="#FFF" fill-opacity="0.8"/>
+              <circle cx="58" cy="80" r="5" fill="#FFF" fill-opacity="0.8"/>
+              <circle cx="48" cy="95" r="5.5" fill="#FFF" fill-opacity="0.8"/>
+              <rect x="22" y="12" width="56" height="8" rx="4" fill="#E91E63"/>
+              <rect x="58" y="0" width="6" height="24" rx="3" fill="#E91E63" transform="rotate(10 58 0)"/>
+            </svg>
+          </div>
+          <div class="drink-body">
+            <h3 class="drink-title">蜜桃草莓啵啵茶</h3>
+            <span class="drink-en">Peach Strawberry Bobo</span>
+            <div class="drink-ingredients">
+              <span class="ingredient-tag">水蜜桃果露</span>
+              <span class="ingredient-tag">現熬草莓泥</span>
+              <span class="ingredient-tag">寒天晶球</span>
+            </div>
+            <p class="drink-desc">
+              甜食愛好者必嚐！雙重粉紅甜美水果暴擊，搭配脆甜寒天晶球，附贈限量 IP 聯名插畫杯套！
+            </p>
+            <div class="drink-footer">
+              <div class="price-box">
+                <span class="price-symbol">$</span>
+                <span class="price-num">75</span>
+                <span class="price-origin">$85</span>
+              </div>
+              <button class="btn-add-drink" onclick="addToCart('蜜桃草莓啵啵茶', 75, '手搖飲')">
+                + 加入購物車
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 飲品 4: 酪梨布丁甜芒昔 (濃郁果昔) -->
+        <div class="drink-card" data-category="smoothie">
+          <span class="card-badge" style="background: #2E7D32;">🥑 濃郁甜品系</span>
+          <span class="card-sweetness">🍯 甜度推薦：全糖</span>
+          <div class="drink-image-box">
+            <svg class="drink-visual-svg" viewBox="0 0 100 130">
+              <rect x="25" y="18" width="50" height="98" rx="10" fill="#7CB342"/>
+              <rect x="28" y="24" width="44" height="90" rx="8" fill="#9CCC65"/>
+              <ellipse cx="50" cy="96" rx="16" ry="10" fill="#FFD54F"/>
+              <rect x="22" y="12" width="56" height="8" rx="4" fill="#558B2F"/>
+              <rect x="58" y="0" width="6" height="24" rx="3" fill="#558B2F" transform="rotate(10 58 0)"/>
+            </svg>
+          </div>
+          <div class="drink-body">
+            <h3 class="drink-title">酪梨布丁甜芒昔</h3>
+            <span class="drink-en">Avocado Pudding Mango Shake</span>
+            <div class="drink-ingredients">
+              <span class="ingredient-tag">新鮮熟酪梨</span>
+              <span class="ingredient-tag">統一布丁</span>
+              <span class="ingredient-tag">芒果果泥</span>
+            </div>
+            <p class="drink-desc">
+              如融化冰淇淋般的醇厚質地！布丁的香甜焦糖與芒果果昔交融，甜度破表、滿滿療癒感！
+            </p>
+            <div class="drink-footer">
+              <div class="price-box">
+                <span class="price-symbol">$</span>
+                <span class="price-num">80</span>
+                <span class="price-origin">$90</span>
+              </div>
+              <button class="btn-add-drink" onclick="addToCart('酪梨布丁甜芒昔', 80, '手搖飲')">
+                + 加入購物車
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 飲品 5: 紅寶石葡萄柚多多 -->
+        <div class="drink-card" data-category="signature">
+          <span class="card-badge">清爽酸甜</span>
+          <span class="card-sweetness">🍯 甜度推薦：少糖</span>
+          <div class="drink-image-box">
+            <svg class="drink-visual-svg" viewBox="0 0 100 130">
+              <rect x="25" y="18" width="50" height="98" rx="10" fill="#E57373"/>
+              <rect x="28" y="24" width="44" height="90" rx="8" fill="#FF8A80"/>
+              <circle cx="42" cy="65" r="3" fill="#D32F2F"/><circle cx="56" cy="72" r="3" fill="#D32F2F"/>
+              <circle cx="38" cy="85" r="3" fill="#D32F2F"/><circle cx="58" cy="90" r="3" fill="#D32F2F"/>
+              <rect x="22" y="12" width="56" height="8" rx="4" fill="#D32F2F"/>
+              <rect x="58" y="0" width="6" height="24" rx="3" fill="#D32F2F" transform="rotate(10 58 0)"/>
+            </svg>
+          </div>
+          <div class="drink-body">
+            <h3 class="drink-title">紅寶石葡萄柚多多</h3>
+            <span class="drink-en">Ruby Grapefruit Yakult</span>
+            <div class="drink-ingredients">
+              <span class="ingredient-tag">滿杯葡萄柚果肉</span>
+              <span class="ingredient-tag">養樂多 2 瓶</span>
+              <span class="ingredient-tag">蘆薈果凍</span>
+            </div>
+            <p class="drink-desc">
+              紅寶石葡萄柚粒粒飽滿爆汁，注入濃郁多多，酸甜交織，下午茶解膩必喝！
+            </p>
+            <div class="drink-footer">
+              <div class="price-box">
+                <span class="price-symbol">$</span>
+                <span class="price-num">65</span>
+                <span class="price-origin">$75</span>
+              </div>
+              <button class="btn-add-drink" onclick="addToCart('紅寶石葡萄柚多多', 65, '手搖飲')">
+                + 加入購物車
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 飲品 6: 蜜香芒果冰沙 (聯名限定) -->
+        <div class="drink-card" data-category="limited">
+          <span class="card-badge" style="background: #E91E63;">💖 聯名限定特調</span>
+          <span class="card-sweetness">🍯 甜度推薦：全糖</span>
+          <div class="drink-image-box">
+            <svg class="drink-visual-svg" viewBox="0 0 100 130">
+              <rect x="25" y="18" width="50" height="98" rx="10" fill="#FFB703"/>
+              <rect x="28" y="24" width="44" height="90" rx="8" fill="#FFC93C"/>
+              <path d="M28 24Q50 10 72 24V40H28Z" fill="#FFF"/>
+              <rect x="22" y="12" width="56" height="8" rx="4" fill="#FB8500"/>
+              <rect x="58" y="0" width="6" height="24" rx="3" fill="#FB8500" transform="rotate(10 58 0)"/>
+            </svg>
+          </div>
+          <div class="drink-body">
+            <h3 class="drink-title">蜜香芒果甜心冰沙</h3>
+            <span class="drink-en">Honey Mango Frappe</span>
+            <div class="drink-ingredients">
+              <span class="ingredient-tag">頂級愛文芒果</span>
+              <span class="ingredient-tag">特調鮮奶霜</span>
+              <span class="ingredient-tag">香甜蜂蜜淋醬</span>
+            </div>
+            <p class="drink-desc">
+              細緻綿密芒果冰沙，頂部擠上香甜輕盈雪白奶霜，聯名杯身拍照最吸睛！
+            </p>
+            <div class="drink-footer">
+              <div class="price-box">
+                <span class="price-symbol">$</span>
+                <span class="price-num">85</span>
+                <span class="price-origin">$95</span>
+              </div>
+              <button class="btn-add-drink" onclick="addToCart('蜜香芒果甜心冰沙', 85, '手搖飲')">
+                + 加入購物車
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 目標受眾專屬互動區：愛喝甜的專屬甜度指南 -->
+  <section class="sweet-paradise-section" id="sweet-guide">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">FOR SWEET LOVERS · 專為愛喝甜的你</span>
+        <h2 class="section-title">
+          螞蟻人必收！<span>COCO 完美甜蜜比例指南</span>
+        </h2>
+        <p class="section-sub">
+          喝手搖就是要夠甜才幸福！根據你的甜蜜渴望，探索水果風味最濃郁的黃金搭配。
+        </p>
+      </div>
+
+      <div class="sweet-interactive-box">
+        <!-- 左側甜度切換器 -->
+        <div class="sugar-guide">
+          <h3>🍯 挑選你的專屬甜蜜度</h3>
+          <p>天然果糖與甘蔗糖交織，點擊查看 COCO 調飲師針對水果特調的極致品味建議：</p>
+          
+          <div class="sugar-levels-selector">
+            <div class="sugar-option active" onclick="selectSugarLevel('full', this)">
+              <div class="sugar-option-title">
+                <span>🍬</span>
+                <span>全糖 (100% 正港甜蜜)</span>
+              </div>
+              <span class="sugar-option-badge badge-sweet-lover">極度推薦</span>
+            </div>
+
+            <div class="sugar-option" onclick="selectSugarLevel('less', this)">
+              <div class="sugar-option-title">
+                <span>🍯</span>
+                <span>少糖 (70% 黃金果韻)</span>
+              </div>
+              <span class="sugar-option-badge badge-sweet-normal">大眾人氣</span>
+            </div>
+
+            <div class="sugar-option" onclick="selectSugarLevel('half', this)">
+              <div class="sugar-option-title">
+                <span>🍋</span>
+                <span>半糖 (50% 酸甜平衡)</span>
+              </div>
+              <span class="sugar-option-badge badge-sweet-normal">清新果香</span>
+            </div>
+          </div>
+
+          <div style="font-size: 0.88rem; color: var(--text-muted);">
+            💡 <strong>調飲師悄悄話：</strong> COCO 水果系列含有大量原汁鮮果，全糖能夠完美平衡天然果酸，激發出最頂級的果蜜馥郁香氣！
+          </div>
+        </div>
+
+        <!-- 右側動態展示卡片 -->
+        <div class="sweet-display-card" id="sugarDisplayCard">
+          <div class="sweet-meter-icon" id="sugarIcon">👑</div>
+          <h4 class="sweet-recommend-title" id="sugarTitle">全糖 100% · 蜜糖狂歡王</h4>
+          <p class="sweet-recommend-desc" id="sugarDesc">
+            「專為熱愛甜食的你準備！」果蜜與高山好茶的完美協奏，百香雙響炮與芒果特調的香氣被放大到極致，每一口都是滿滿多巴胺！
+          </p>
+          
+          <div class="toppings-wrapper">
+            <div class="toppings-title">
+              <span>➕</span> 螞蟻人激推夢幻加料組合：
+            </div>
+            <div class="toppings-chips">
+              <span class="chip">+ 雙倍黑糖珍珠</span>
+              <span class="chip">+ 蜜漬椰果</span>
+              <span class="chip">+ 統一滑嫩布丁</span>
+              <span class="chip">+ 晶球啵啵</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 聯名商品專區 (功能亮點：聯名商品吸引消費者購買) -->
+  <section class="collab-section" id="collab">
+    <div class="container">
+      
+      <!-- 聯名主視覺大卡片 -->
+      <div class="collab-hero-card">
+        <div>
+          <div class="collab-glow-badge">
+            🔥 2026 跨界夢幻巨獻 · 限量發售
+          </div>
+          <h2 class="collab-hero-title">
+            COCO × <span class="glow-text">蜜糖果果 IP 聯名派對</span>
+          </h2>
+          <p class="collab-hero-desc">
+            超萌人氣角色降臨 COCO！不僅有聯名專屬限定特調杯身，更推出限量周邊：吸管杯、果香托特包、毛絨飲料提袋。買手搖即享超值加購價，數量有限，售完為止！
+          </p>
+
+          <!-- 倒數計時器 -->
+          <div class="countdown-box">
+            <div class="countdown-label">
+              <span>⏰</span> 聯名首波早鳥加購優惠截止倒數：
+            </div>
+            <div class="timer-digits">
+              <div class="time-slot"><span class="time-num" id="days">03</span><span class="time-unit">天</span></div>
+              <div class="time-slot"><span class="time-num" id="hours">14</span><span class="time-unit">時</span></div>
+              <div class="time-slot"><span class="time-num" id="minutes">42</span><span class="time-unit">分</span></div>
+              <div class="time-slot"><span class="time-num" id="seconds">58</span><span class="time-unit">秒</span></div>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+            <button class="btn btn-primary" onclick="scrollSection('merchGrid')">
+              🛍️ 立即選購聯名周邊
+            </button>
+            <button class="btn btn-collab" onclick="claimCoupon()">
+              🎟️ 領取滿 $200 折 $30 券
+            </button>
+          </div>
+        </div>
+
+        <!-- 聯名特製商品視覺 -->
+        <div class="collab-visual-box">
+          <div class="collab-merch-showcase">
+            <svg class="collab-special-svg" viewBox="0 0 160 180" fill="none">
+              <!-- 聯名吸管杯 -->
+              <rect x="40" y="30" width="80" height="130" rx="16" fill="#FFF" stroke="#FF6600" stroke-width="3"/>
+              <rect x="35" y="24" width="90" height="12" rx="6" fill="#FF6600"/>
+              <!-- 吸管 -->
+              <rect x="75" y="0" width="10" height="40" rx="5" fill="#FFA500"/>
+              <!-- IP 聯名印花 (可愛蜜桃兔臉) -->
+              <circle cx="80" cy="85" r="24" fill="#FFE5D9"/>
+              <ellipse cx="72" cy="54" rx="5" ry="14" fill="#FFE5D9" transform="rotate(-10 72 54)"/>
+              <ellipse cx="88" cy="54" rx="5" ry="14" fill="#FFE5D9" transform="rotate(10 88 54)"/>
+              <circle cx="72" cy="85" r="2.5" fill="#222"/>
+              <circle cx="88" cy="85" r="2.5" fill="#222"/>
+              <ellipse cx="66" cy="90" rx="4" ry="2.5" fill="#FF8585"/>
+              <ellipse cx="94" cy="90" rx="4" ry="2.5" fill="#FF8585"/>
+              <path d="M78 90Q80 93 82 90" stroke="#222" stroke-width="1.5" stroke-linecap="round"/>
+              <rect x="52" y="125" width="56" height="20" rx="10" fill="#FF6600"/>
+              <text x="80" y="139" font-size="9" font-weight="900" fill="#FFF" text-anchor="middle">COCO × IP</text>
+            </svg>
+            <div style="font-weight: 800; font-size: 1.05rem; margin-bottom: 4px;">聯名限量 Tritan 隨身吸管杯</div>
+            <div style="font-size: 0.85rem; color: #FFA04D;">買任 2 杯水果飲品只要 $99 加購！</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 大聯名商品與周邊搶購網格 (吸引消費者購買) -->
+      <div class="section-header" style="margin-bottom: 35px;">
+        <span class="section-eyebrow">EXCLUSIVE MERCHANDISE</span>
+        <h2 class="section-title">
+          🔥 聯名商品 <span>搶購特區</span>
+        </h2>
+        <p class="section-sub">
+          每一款都經過精心設計，手搖控與收藏控絕對不能錯過的夢幻逸品！
+        </p>
+      </div>
+
+      <div class="merch-grid" id="merchGrid">
+
+        <!-- 周邊 1: 聯名盲盒公仔吸管杯 -->
+        <div class="merch-card">
+          <span class="merch-tag-limited">限量 3000 組</span>
+          <div class="merch-icon-box">🥤</div>
+          <h3 class="merch-title">盲盒公仔吸管杯</h3>
+          <span class="merch-condition">買 2 杯飲品加購價</span>
+          <p class="merch-desc">
+            食品級耐熱 Tritan 材質，杯蓋附可愛公仔防塵塞，附可拆洗粗吸管。
+          </p>
+          <div class="merch-price-row">
+            <span style="font-size: 0.9rem; color: var(--coco-orange-primary); font-weight: 800;">加購價 $</span>
+            <span style="font-size: 1.55rem; font-weight: 900; color: var(--coco-orange-primary);">99</span>
+            <span style="font-size: 0.8rem; color: var(--text-light); text-decoration: line-through;">市價 $399</span>
+          </div>
+          <button class="merch-add-btn" onclick="addToCart('聯名盲盒公仔吸管杯', 99, '聯名周邊')">
+            + 立即搶購加購
+          </button>
+        </div>
+
+        <!-- 周邊 2: 果香保冷托特包 -->
+        <div class="merch-card">
+          <span class="merch-tag-limited">滿額免費贈</span>
+          <div class="merch-icon-box">👜</div>
+          <h3 class="merch-title">果香保冷托特包</h3>
+          <span class="merch-condition">消費滿 $250 即贈</span>
+          <p class="merch-desc">
+            內層加厚加固鋁箔保溫層，可容納 4 杯大杯手搖，野餐外帶必備良伴。
+          </p>
+          <div class="merch-price-row">
+            <span style="font-size: 0.9rem; color: var(--coco-orange-primary); font-weight: 800;">單購價 $</span>
+            <span style="font-size: 1.55rem; font-weight: 900; color: var(--coco-orange-primary);">129</span>
+            <span style="font-size: 0.8rem; color: var(--text-light); text-decoration: line-through;">市價 $299</span>
+          </div>
+          <button class="merch-add-btn" onclick="addToCart('果香保冷托特包', 129, '聯名周邊')">
+            + 立即搶購加購
+          </button>
+        </div>
+
+        <!-- 周邊 3: 刺繡毛絨飲料提袋 -->
+        <div class="merch-card">
+          <span class="merch-tag-limited">人氣熱銷款</span>
+          <div class="merch-icon-box">🎀</div>
+          <h3 class="merch-title">刺繡毛絨飲料提袋</h3>
+          <span class="merch-condition">買任 1 杯享加購</span>
+          <p class="merch-desc">
+            超軟親膚羊羔毛材質，精緻刺繡聯名角色，提著出門回頭率 200%！
+          </p>
+          <div class="merch-price-row">
+            <span style="font-size: 0.9rem; color: var(--coco-orange-primary); font-weight: 800;">加購價 $</span>
+            <span style="font-size: 1.55rem; font-weight: 900; color: var(--coco-orange-primary);">49</span>
+            <span style="font-size: 0.8rem; color: var(--text-light); text-decoration: line-through;">市價 $180</span>
+          </div>
+          <button class="merch-add-btn" onclick="addToCart('刺繡毛絨飲料提袋', 49, '聯名周邊')">
+            + 立即搶購加購
+          </button>
+        </div>
+
+        <!-- 周邊 4: 聯名限量雷射立體徽章組 -->
+        <div class="merch-card">
+          <span class="merch-tag-limited">收藏家必搶</span>
+          <div class="merch-icon-box">✨</div>
+          <h3 class="merch-title">雷射金屬徽章組</h3>
+          <span class="merch-condition">全套 4 款含展示盒</span>
+          <p class="merch-desc">
+            高質感金屬拋光與炫彩雷射效果，完整收錄 COCO 經典水果擬人化角色。
+          </p>
+          <div class="merch-price-row">
+            <span style="font-size: 0.9rem; color: var(--coco-orange-primary); font-weight: 800;">特惠價 $</span>
+            <span style="font-size: 1.55rem; font-weight: 900; color: var(--coco-orange-primary);">89</span>
+            <span style="font-size: 0.8rem; color: var(--text-light); text-decoration: line-through;">市價 $220</span>
+          </div>
+          <button class="merch-add-btn" onclick="addToCart('雷射金屬徽章組', 89, '聯名周邊')">
+            + 立即搶購加購
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 顧客評價區塊 (手搖控真實口碑) -->
+  <section class="review-section" id="reviews">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">REVIEWS · 果茶控真實分享</span>
+        <h2 class="section-title">
+          愛喝甜的他們，<span>都在喝 COCO！</span>
+        </h2>
+        <p class="section-sub">
+          超過萬名消費者給予 5 星好評，滿杯果肉加上吸睛聯名，天天喝都不膩。
+        </p>
+      </div>
+
+      <div class="review-grid">
+        
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">
+            「百香雙響炮真的是我人生手搖的神！百香果的天然酸甜搭珍珠椰果，我每次都點全糖，甜滋滋的一整天上班疲勞直接消散！」
+          </p>
+          <div class="reviewer-meta">
+            <div class="reviewer-avatar">👩</div>
+            <div>
+              <div class="reviewer-name">林小姐 / 上班族</div>
+              <div class="reviewer-sub">每週必喝 4 杯 COCO</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">
+            「這次跟蜜糖果果聯名的吸管杯太可愛了吧！加購價才 99 元超級佛心，拿去買飲料還能折 5 元，質感超棒，朋友看到都在問哪裡買的！」
+          </p>
+          <div class="reviewer-meta">
+            <div class="reviewer-avatar">👧</div>
+            <div>
+              <div class="reviewer-name">陳同學 / 大學生</div>
+              <div class="reviewer-sub">聯名周邊整套收藏</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">
+            「鮮橙金芒多重綠真的很驚豔，柳橙的清香加上芒果的甜，喝得出來是真材實料的水果，夏天喝大口吸進果肉實在太過癮了！」
+          </p>
+          <div class="reviewer-meta">
+            <div class="reviewer-avatar">👨</div>
+            <div>
+              <div class="reviewer-name">張先生 / 設計師</div>
+              <div class="reviewer-sub">水果茶資深愛好者</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 行動呼籲促銷條幅 (CTA) -->
+  <section class="cta-banner-section">
+    <div class="container">
+      <div class="cta-box">
+        <h2>今天，就讓鮮甜果香療癒你的心！</h2>
+        <p>
+          線上預約點餐免排隊，滿 $199 免外送費，單筆滿 $250 再送限量聯名果香保冷托特包！
+        </p>
+        <div class="cta-buttons">
+          <button class="btn btn-light" style="padding: 14px 34px; font-size: 1.05rem;" onclick="addToCart('百香雙響炮', 65, '手搖飲')">
+            🍹 線上直接開喝
+          </button>
+          <button class="btn btn-collab" style="padding: 14px 30px; font-size: 1.05rem; background: rgba(255,255,255,0.2); color:#fff; border-color:#fff;" onclick="scrollSection('collab')">
+            🎁 搶看聯名好禮
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 網站頁尾 (Footer) -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <div class="logo-circle" style="width: 38px; height: 38px; font-size: 1.2rem;">🍊</div>
+            <span>COCO</span>
+            <span class="subtext">手搖飲</span>
+          </div>
+          <p>
+            COCO 專注多重水果風味手搖飲，以熱情活力橙色為標誌，帶給每一位愛喝甜的消費者最極致的滿杯果香與豐富嚼勁。
+          </p>
+          <div style="font-size: 0.85rem; color: #E58E52; font-weight: 700;">
+            客服專線：0800-888-262 (週一至週五 09:00 - 18:00)
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h5>風味探索</h5>
+          <ul class="footer-links">
+            <li><a href="#fruit-style">多重水果工藝</a></li>
+            <li><a href="#menu">招牌雙響果茶</a></li>
+            <li><a href="#menu">濃郁果昔甜乳</a></li>
+            <li><a href="#sweet-guide">螞蟻人甜度指南</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>聯名專區</h5>
+          <ul class="footer-links">
+            <li><a href="#collab">最新 IP 聯名特企</a></li>
+            <li><a href="#collab">限量吸管杯加購</a></li>
+            <li><a href="#collab">滿額保冷托特包</a></li>
+            <li><a href="#collab">會員專屬兌換</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>門市與外送</h5>
+          <ul class="footer-links">
+            <li><a href="#hero">全台門市據點查詢</a></li>
+            <li><a href="#hero">UberEats 線上點餐</a></li>
+            <li><a href="#hero">foodpanda 外送到府</a></li>
+            <li><a href="#hero">企業團購優惠申請</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 COCO 手搖飲. 版權所有. 主打多重水果風格 · 聯名商品吸引消費者購買.
+        </div>
+        <div>
+          飲品均含天然果糖，甜度依門市實際調配為準 · 食品業者登錄字號 A-123456789-00000-1
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 購物車側邊抽屜 (Cart Drawer) -->
+  <div class="cart-drawer-overlay" id="cartOverlay" onclick="toggleCartDrawer()"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="drawer-header">
+      <h3>
+        <span>🛒</span> 我的點餐清單
+      </h3>
+      <button class="btn-close-drawer" onclick="toggleCartDrawer()">✕</button>
+    </div>
+    
+    <div class="drawer-body" id="cartItemList">
+      <!-- 預設項目 -->
+      <div class="cart-item" data-id="1">
+        <div>
+          <div class="cart-item-name">百香雙響炮 (大杯)</div>
+          <div class="cart-item-sub">全糖 100% / 正常冰 / 珍珠椰果</div>
+        </div>
+        <div style="display: flex; align-items: center;">
+          <span class="cart-item-price">$65</span>
+          <span class="cart-remove-btn" onclick="removeFromCart(this, 65)">✕</span>
+        </div>
+      </div>
+
+      <div class="cart-item" data-id="2">
+        <div>
+          <div class="cart-item-name">盲盒公仔吸管杯 (聯名款)</div>
+          <div class="cart-item-sub">超值滿額加購品</div>
+        </div>
+        <div style="display: flex; align-items: center;">
+          <span class="cart-item-price">$99</span>
+          <span class="cart-remove-btn" onclick="removeFromCart(this, 99)">✕</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="drawer-footer">
+      <div class="cart-perk-notice" id="cartPerkNotice">
+        <span>🎁</span> <span>已達滿 $150 門市加購資格！再湊 $86 送聯名托特包！</span>
+      </div>
+      <div class="cart-total-row">
+        <span>結帳總計</span>
+        <span style="color: var(--coco-orange-primary);" id="cartTotalPrice">$164</span>
+      </div>
+      <button class="btn btn-primary" style="width: 100%; padding: 14px; font-size: 1.05rem;" onclick="checkoutOrder()">
+        🚀 前往結帳下單
+      </button>
+    </div>
+  </div>
+
+  <!-- 吐司通知 (Toast) -->
+  <div class="toast-notice" id="toastNotice">
+    <span id="toastIcon">✨</span>
+    <span id="toastText">成功加入購物車！</span>
+  </div>
+
+  <!-- JavaScript 互動功能 -->
+  <script>
+    // 購物車數據與狀態
+    let currentTotal = 164;
+    let itemCount = 2;
+
+    // 吐司提示
+    function showToast(text, icon = '✨') {
+      const toast = document.getElementById('toastNotice');
+      const toastText = document.getElementById('toastText');
+      const toastIcon = document.getElementById('toastIcon');
+      
+      toastText.innerText = text;
+      toastIcon.innerText = icon;
+      toast.classList.add('show');
+      
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+
+    // 加入購物車
+    function addToCart(name, price, category = '商品') {
+      itemCount++;
+      currentTotal += price;
+
+      const cartList = document.getElementById('cartItemList');
+      const itemDiv = document.createElement('div');
+      itemDiv.className = 'cart-item';
+      itemDiv.innerHTML = `
+        <div>
+          <div class="cart-item-name">${name}</div>
+          <div class="cart-item-sub">${category} · 甜美精選</div>
+        </div>
+        <div style="display: flex; align-items: center;">
+          <span class="cart-item-price">$${price}</span>
+          <span class="cart-remove-btn" onclick="removeFromCart(this, ${price})">✕</span>
+        </div>
+      `;
+      cartList.appendChild(itemDiv);
+
+      updateCartSummary();
+      showToast(`已將「${name}」加入清單！`, '🍹');
+    }
+
+    // 移除購物車項目
+    function removeFromCart(btn, price) {
+      const item = btn.closest('.cart-item');
+      if (item) {
+        item.remove();
+        itemCount = Math.max(0, itemCount - 1);
+        currentTotal = Math.max(0, currentTotal - price);
+        updateCartSummary();
+        showToast('已自購物車中移除該項目', '🗑️');
+      }
+    }
+
+    // 更新購物車總金額與門檻提示
+    function updateCartSummary() {
+      document.getElementById('cartCount').innerText = itemCount;
+      document.getElementById('cartTotalPrice').innerText = '$' + currentTotal;
+
+      const perkNotice = document.getElementById('cartPerkNotice');
+      if (currentTotal >= 250) {
+        perkNotice.innerHTML = `<span>🎉</span> <strong style="color:#D84A00;">恭喜！已達成滿 $250 免費贈送聯名保冷托特包！</strong>`;
+      } else {
+        const diff = 250 - currentTotal;
+        perkNotice.innerHTML = `<span>🎁</span> <span>再消費 $${diff} 即免費送限量聯名保冷托特包！</span>`;
+      }
+    }
+
+    // 開關購物車抽屜
+    function toggleCartDrawer() {
+      const drawer = document.getElementById('cartDrawer');
+      const overlay = document.getElementById('cartOverlay');
+      drawer.classList.toggle('active');
+      overlay.classList.toggle('active');
+    }
+
+    document.getElementById('cartTrigger').addEventListener('click', toggleCartDrawer);
+
+    // 模擬結帳
+    function checkoutOrder() {
+      if (itemCount === 0) {
+        showToast('購物車內目前沒有商品喔！快去挑選好喝的水果茶吧', '🛒');
+        return;
+      }
+      toggleCartDrawer();
+      showToast(`訂單已送出！總計 $${currentTotal}，聯名好禮已隨單附贈！`, '🎉');
+    }
+
+    // 領取優惠券
+    function claimCoupon() {
+      showToast('恭喜領取成功！滿 $200 折 $30 優惠序號「COCOFRUIT2026」已存入帳戶', '🎟️');
+    }
+
+    // 菜單類別篩選
+    function filterMenu(category) {
+      const buttons = document.querySelectorAll('.tab-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.currentTarget.classList.add('active');
+
+      const cards = document.querySelectorAll('.drink-card');
+      cards.forEach(card => {
+        if (category === 'all') {
+          card.style.display = 'flex';
+        } else {
+          if (card.getAttribute('data-category') === category) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        }
+      });
+    }
+
+    // 甜蜜指南切換
+    function selectSugarLevel(level, element) {
+      document.querySelectorAll('.sugar-option').forEach(el => el.classList.remove('active'));
+      element.classList.add('active');
+
+      const title = document.getElementById('sugarTitle');
+      const desc = document.getElementById('sugarDesc');
+      const icon = document.getElementById('sugarIcon');
+
+      if (level === 'full') {
+        icon.innerText = '👑';
+        title.innerText = '全糖 100% · 蜜糖狂歡王';
+        desc.innerText = '「專為熱愛甜食的你準備！」果蜜與高山好茶的完美協奏，百香雙響炮與芒果特調的香氣被放大到極致，每一口都是滿滿多巴胺！';
+      } else if (level === 'less') {
+        icon.innerText = '🍊';
+        title.innerText = '少糖 70% · 黃金果韻調和';
+        desc.innerText = '保有鮮明蜜甜風味的同時，突顯鮮榨柳橙與百香果天然微酸，口感平衡且層次豐富，果茶控一致激賞！';
+      } else if (level === 'half') {
+        icon.innerText = '🍋';
+        title.innerText = '半糖 50% · 清新微酸果香';
+        desc.innerText = '適合想感受茶感芳香與輕甜果味的朋友，水蜜桃啵啵與葡萄柚多多的果香依然清晰純粹。';
+      }
+    }
+
+    // 平滑滾動至指定區域
+    function scrollSection(id) {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    // 聯名倒數計時器
+    function startCountdown() {
+      let durationSeconds = 3 * 24 * 3600 + 14 * 3600 + 42 * 60 + 58;
+      
+      setInterval(() => {
+        if (durationSeconds > 0) {
+          durationSeconds--;
+          const days = Math.floor(durationSeconds / (3600 * 24));
+          const hours = Math.floor((durationSeconds % (3600 * 24)) / 3600);
+          const minutes = Math.floor((durationSeconds % 3600) / 60);
+          const seconds = durationSeconds % 60;
+
+          document.getElementById('days').innerText = String(days).padStart(2, '0');
+          document.getElementById('hours').innerText = String(hours).padStart(2, '0');
+          document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
+          document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
+        }
+      }, 1000);
+    }
+
+    startCountdown();
+  </script>
+</body>
+</html>
