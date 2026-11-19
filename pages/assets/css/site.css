@@ -1,4 +1,4 @@
-/* ==========================================================
+﻿/* ==========================================================
    COCO 手搖飲 - 官方網站共用樣式表 (site.css)
    色彩基調：鮮橙色、焦糖深橙、蜜柑粉白、水蜜桃粉、芒果金黃
    字體設定：Plus Jakarta Sans + Noto Sans TC
@@ -12,11 +12,11 @@
   --color-primary-light: #FF8533;  /* 亮橙果色 */
   --color-primary-glow: #FFA04D;   /* 柔光橙 */
   --color-peach: #FF7E67;          /* 水蜜桃果粉 */
-  --color-yellow: #FFB703;         /* 芒果金黃 */
-  --color-amber: #FB8500;          /* 暖琥珀色 */
-  --color-green: #38B000;          /* 鮮採檸檬綠 */
+  --color-yellow: #FFC107;         /* 芒果金黃 */
+  --color-amber: #FFB703;          /* 暖琥珀色 */
+  --color-green: #52B788;          /* 鮮採檸檬綠 */
   
-  --bg-page: #FFF9F4;              /* 蜜柑粉白底色 */
+  --bg-page: #FFF5EE;              /* 蜜柑粉白底色 */
   --bg-surface: #FFFFFF;           /* 卡片純白底色 */
   --bg-warm: #FFF3EB;              /* 淺暖橙區塊底色 */
   --bg-alt: #FFF5EE;               /* 柔和次底色 */
@@ -41,7 +41,7 @@
   --shadow-lg: 0 16px 40px rgba(230, 74, 0, 0.14);
   --shadow-card: 0 10px 30px rgba(230, 74, 0, 0.08);
   
-  --font-family-base: 'Plus Jakarta Sans', 'Noto Sans TC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-family-base: 'Noto Sans TC', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --transition-speed: 0.25s ease;
   
   --container-max: 1200px;
@@ -668,7 +668,7 @@ ul, ol {
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 600px) {
   .footer-top {
     grid-template-columns: 1fr;
     gap: 28px;
@@ -1476,3 +1476,4 @@ ul, ol {
   color: var(--text-muted);
   line-height: 1.6;
 }
+
