@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#FF6600" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+  <rect width="400" height="400" rx="32" fill="#FFF9F0"/>
+  <circle cx="200" cy="200" r="140" fill="#FFE8D6" opacity="0.5"/>
+  <g filter="url(#shadow)">
+    <path d="M165 170 C165 85 235 85 235 170" fill="none" stroke="#FF7043" stroke-width="14" stroke-linecap="round"/>
+    <rect x="130" y="160" width="140" height="155" rx="16" fill="#FFE0B2" stroke="#FFB74D" stroke-width="3"/>
+    <rect x="145" y="210" width="110" height="90" rx="12" fill="#FFFFFF"/>
+    <circle cx="200" cy="250" r="22" fill="#FFB703"/>
+    <circle cx="193" cy="247" r="2.5" fill="#231815"/>
+    <circle cx="207" cy="247" r="2.5" fill="#231815"/>
+    <path d="M197 254 Q200 258 203 254" stroke="#231815" stroke-width="2" fill="none"/>
+    <text x="200" y="285" text-anchor="middle" font-family="'Noto Sans TC', sans-serif" font-size="10" font-weight="700" fill="#FF6600">蜜糖保溫袋</text>
+  </g>
+  <text x="200" y="375" text-anchor="middle" font-family="'Noto Sans TC', sans-serif" font-size="16" font-weight="700" fill="#E64A00">蜜糖果果 聯名保溫提袋</text>
+</svg>

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#FF6600" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+  <rect width="400" height="400" rx="32" fill="#FFF9F5"/>
+  <circle cx="200" cy="200" r="140" fill="#FFE5D9" opacity="0.5"/>
+  <g filter="url(#shadow)">
+    <circle cx="200" cy="90" r="26" fill="none" stroke="#FFB703" stroke-width="8"/>
+    <rect x="194" y="116" width="12" height="25" rx="4" fill="#FB8500"/>
+    <circle cx="200" cy="210" r="65" fill="#FF9E80" stroke="#FF6E40" stroke-width="4"/>
+    <circle cx="155" cy="160" r="22" fill="#FF6E40"/>
+    <circle cx="155" cy="160" r="14" fill="#FFE082"/>
+    <circle cx="245" cy="160" r="22" fill="#FF6E40"/>
+    <circle cx="245" cy="160" r="14" fill="#FFE082"/>
+    <circle cx="180" cy="205" r="6" fill="#231815"/>
+    <circle cx="220" cy="205" r="6" fill="#231815"/>
+    <ellipse cx="170" cy="218" rx="8" ry="5" fill="#FF5252" opacity="0.7"/>
+    <ellipse cx="230" cy="218" rx="8" ry="5" fill="#FF5252" opacity="0.7"/>
+    <path d="M193 218 Q200 226 207 218" stroke="#231815" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+    <rect x="188" y="240" width="24" height="30" rx="5" fill="#FFB703" stroke="#FFF" stroke-width="2"/>
+    <line x1="200" y1="232" x2="204" y2="240" stroke="#FF5722" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  <text x="200" y="375" text-anchor="middle" font-family="'Noto Sans TC', sans-serif" font-size="16" font-weight="700" fill="#E64A00">蜜糖果果 限量刺繡吊飾</text>
+</svg>

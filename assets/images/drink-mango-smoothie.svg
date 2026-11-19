@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="smoothieGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFE082"/>
+      <stop offset="50%" stop-color="#FFCA28"/>
+      <stop offset="100%" stop-color="#FFA000"/>
+    </linearGradient>
+    <linearGradient id="creamGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#FFF8E1"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#FFA000" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+  <rect width="400" height="400" rx="32" fill="#FFFDF5"/>
+  <circle cx="200" cy="200" r="150" fill="#FFF9C4" opacity="0.5"/>
+  <g filter="url(#shadow)">
+    <rect x="210" y="50" width="16" height="150" rx="8" fill="#FFB300" transform="rotate(10 218 125)"/>
+    <path d="M135 140 C135 95 265 95 265 140 Z" fill="#FFFFFF" opacity="0.6" stroke="#FFE082" stroke-width="2"/>
+    <path d="M155 138 Q170 110 185 125 Q200 100 220 120 Q235 105 248 138 Z" fill="url(#creamGrad)"/>
+    <rect x="180" y="110" width="14" height="14" rx="3" fill="#FF8F00" transform="rotate(20 187 117)"/>
+    <rect x="210" y="115" width="12" height="12" rx="3" fill="#FFA000" transform="rotate(-15 216 121)"/>
+    <path d="M130 140 L145 320 Q146 335 160 335 L240 335 Q254 335 255 320 L270 140 Z" fill="#FFFDE7"/>
+    <path d="M134 150 L146 318 Q147 330 160 330 L240 330 Q253 330 254 318 L266 150 Z" fill="url(#smoothieGrad)"/>
+    <rect x="165" y="220" width="18" height="18" rx="4" fill="#E65100" opacity="0.8" transform="rotate(15 174 229)"/>
+    <rect x="215" y="250" width="16" height="16" rx="4" fill="#FF6F00" opacity="0.8" transform="rotate(-25 223 258)"/>
+    <rect x="175" y="280" width="15" height="15" rx="4" fill="#FF8F00" opacity="0.85" transform="rotate(35 182 287)"/>
+    <path d="M140 160 L150 310" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" opacity="0.45"/>
+  </g>
+  <text x="200" y="375" text-anchor="middle" font-family="'Noto Sans TC', sans-serif" font-size="16" font-weight="700" fill="#FF8F00">蜜糖芒果果昔</text>
+</svg>
